@@ -34,7 +34,7 @@
 
   // Sin sesión no se puede entrar a ninguna de las dos páginas.
   if (!sesion || !sesion.rol) {
-    window.location.replace("login.html");
+    window.location.replace("index.html");
     return;
   }
 
@@ -82,7 +82,7 @@
     salir.textContent = "Cerrar sesión";
     salir.addEventListener("click", function () {
       localStorage.removeItem(CLAVE_SESION);
-      window.location.replace("login.html");
+      window.location.replace("index.html");
     });
 
     barraSesion.appendChild(texto);
