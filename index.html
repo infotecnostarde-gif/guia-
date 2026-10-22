@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo4.css">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a soporte nacho</h1>
+    </header>
+
+    <form id="login" novalidate>
+        <h1>En donde se quiere logiar</h1>
+        <h2>su mejor servicio de mantenimiento</h2>
+
+        <div>
+            <label for="rol">Ingresar como</label>
+            <select id="rol">
+                <option value="admin">Administrador</option>
+                <option value="usuario">Usuario / Técnico</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="usua">Ingrese su usuario</label>
+            <input type="text" id="usua" placeholder="eli" autocomplete="username">
+        </div>
+
+        <div>
+            <label for="contra">Ingrese su contraseña</label>
+            <input type="password" id="contra" placeholder="*****" autocomplete="current-password">
+        </div>
+
+        <button type="submit">Iniciar</button>
+
+        <p id="mensajeLogin" class="mensaje" role="alert" aria-live="polite"></p>
+
+        <p class="ayuda">
+            Cuentas de prueba:<br>
+            Admin: <strong>eli</strong> / <strong>12345</strong><br>
+            Usuarios: <strong>juan</strong> / <strong>1234</strong> &middot; <strong>maria</strong> / <strong>1234</strong>
+        </p>
+    </form>
+
+    <script src="js2.js"></script>
+</body>
+</html>

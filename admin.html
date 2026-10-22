@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Servicio Técnico - Admin</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body data-pagina="admin">
+
+  <header>
+    <h1>Control de Servicio Técnico</h1>
+    <p>Guía de control de equipos en servicio técnico</p>
+    <div id="barraSesion" class="barra-sesion"></div>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <h2 id="tituloFormulario">Registrar equipo</h2>
+
+      <form id="formEquipo" class="formulario" novalidate>
+
+        <div class="campo">
+          <label for="cliente">Cliente *</label>
+          <input type="text" id="cliente" placeholder="Ej: Luis Pérez">
+        </div>
+
+        <div class="campo">
+          <label for="nit">NIT/CC *</label>
+          <input type="text" id="nit" placeholder="Ej: 800123456-7" inputmode="numeric">
+        </div>
+
+        <div class="campo">
+          <label for="direccion">Dirección</label>
+          <input type="text" id="direccion" placeholder="Ej: Calle 10 # 5-20">
+        </div>
+
+        <div class="campo">
+          <label for="contacto">Contacto</label>
+          <input type="tel" id="contacto" placeholder="Ej: 3001234567" inputmode="numeric">
+        </div>
+
+        <div class="campo">
+          <label for="medioPago">Medio de pago</label>
+          <select id="medioPago">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+            <option value="Transferencia bancaria">Transferencia bancaria</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="servicio">Servicio a realizar</label>
+          <input type="text" id="servicio" placeholder="Ej: Mantenimiento preventivo">
+        </div>
+
+        <div class="campo">
+          <label for="fechaIngreso">Fecha de ingreso *</label>
+          <input type="date" id="fechaIngreso">
+        </div>
+
+        <div class="campo">
+          <label for="horaIngreso">Hora de ingreso *</label>
+          <input type="time" id="horaIngreso">
+        </div>
+
+        <div class="campo">
+          <label for="equipo">Equipo</label>
+          <input type="text" id="equipo" placeholder="Ej: Portátil Lenovo">
+        </div>
+
+        <div class="campo">
+          <label for="marca">Marca</label>
+          <input type="text" id="marca" placeholder="Ej: Lenovo">
+        </div>
+
+        <div class="campo">
+          <label for="serial">Serial</label>
+          <input type="text" id="serial" placeholder="Ej: SN-12345">
+        </div>
+
+        <div class="campo">
+          <label for="estado">Estado</label>
+          <select id="estado">
+            <option value="Ingresado">Ingresado</option>
+            <option value="En proceso">En proceso</option>
+            <option value="En entrega">En entrega</option>
+            <option value="Entregado">Entregado</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="tecnico">TC (técnico)</label>
+          <input type="text" id="tecnico" placeholder="Ej: Técnico 1">
+        </div>
+
+        <div class="campo campo-botones">
+          <button type="submit" id="btnGuardar">Guardar equipo</button>
+          <button type="button" id="btnSuministros" class="secundario" aria-expanded="false" aria-controls="miniSuministros">Suministros</button>
+          <button type="button" id="btnCancelar" class="secundario" hidden>Cancelar edición</button>
+        </div>
+
+        <fieldset id="miniSuministros" class="mini-formulario" hidden>
+          <legend>Suministros del servicio</legend>
+
+          <div class="campo">
+            <label for="suministroInsumo">Insumo</label>
+            <input type="text" id="suministroInsumo" placeholder="Ej: Pasta térmica">
+          </div>
+
+          <div class="campo">
+            <label for="suministroHerramienta">Herramienta</label>
+            <input type="text" id="suministroHerramienta" placeholder="Ej: Destornillador">
+          </div>
+
+          <div class="campo">
+            <label for="suministroTardo">Tardo</label>
+            <input type="text" id="suministroTardo" placeholder="Ej: nombre del tardo">
+          </div>
+
+          <p class="mini-nota">Los suministros se guardan junto con el equipo al pulsar "Guardar equipo".</p>
+        </fieldset>
+      </form>
+
+      <div id="mensaje" class="mensaje" role="alert" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Equipos en servicio técnico</h2>
+
+      <div class="buscador">
+        <div class="campo">
+          <label for="buscador">Buscar</label>
+          <input type="text" id="buscador" placeholder="Ej: Luis Pérez, serial, equipo...">
+        </div>
+        <button id="btnBuscar" type="button">Buscar</button>
+        <button id="btnLimpiarBusqueda" type="button" class="secundario">Mostrar todo</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>NIT/CC</th>
+            <th>Dirección</th>
+            <th>Contacto</th>
+            <th>Medio de pago</th>
+            <th>Servicio a realizar</th>
+            <th>Fecha de ingreso</th>
+            <th>Hora de ingreso</th>
+            <th>Equipo</th>
+            <th>Marca</th>
+            <th>Serial</th>
+            <th>Estado</th>
+            <th>TC</th>
+            <th>Insumo</th>
+            <th>Herramienta</th>
+            <th>Tardo</th>
+            <th class="col-acciones">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+      </table>
+
+      <p id="contador" class="contador"></p>
+    </section>
+
+  </main>
+
+  <script src="js.js"></script>
+</body>
+</html>

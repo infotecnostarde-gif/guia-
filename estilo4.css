@@ -1,0 +1,183 @@
+:root {
+  --azul: #2563eb;
+  --azul-oscuro: #1d4ed8;
+  --fondo: #f1f5f9;
+  --texto: #1f2937;
+  --texto-suave: #6b7280;
+  --borde: #d1d5db;
+  --linea: #e5e7eb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+/* Encabezado azul */
+header {
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--azul), var(--azul-oscuro));
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+/* Tarjeta blanca */
+form {
+  width: min(100% - 2rem, 26rem);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+form h1 {
+  margin: 0;
+  padding-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--linea);
+}
+
+form h2 {
+  margin: 0.75rem 0 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+form div {
+  margin-bottom: 1.1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+input {
+  width: 100%;
+  height: 2.6rem;
+  padding: 0 0.85rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+select {
+  width: 100%;
+  height: 2.6rem;
+  padding: 0 0.85rem;
+  font: inherit;
+  font-size: 0.95rem;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Mensajes de error / éxito del login */
+.mensaje {
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+
+.mensaje:empty {
+  display: none;
+}
+
+.mensaje.exito {
+  color: #16a34a;
+}
+
+/* Ayuda con las cuentas de prueba */
+.ayuda {
+  margin: 1.25rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linea);
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--texto-suave);
+}
+
+.ayuda strong {
+  color: #374151;
+}
+
+button {
+  width: 100%;
+  height: 2.9rem;
+  margin-top: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--azul);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button:hover {
+  background: var(--azul-oscuro);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.4);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  input,
+  button {
+    transition: none;
+  }
+}
